@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  active        Boolean        @default(true)
+  createdAt     DateTime       @default(now()) @db.Timestamptz(3)
+  email         String         @unique
+  name          String
+  password      String
+  type          Int
+  institutionId Int?
+  institution   Institution?   @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  UserSubjects  UserSubjects[]
+  UserTask      UserTask[]
+  points        Int
+}
+
+model Institution {
+  id        Int      @id @default(autoincrement())
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  name      String
+  User      User[]
+}
+
+model Subjects {
+  id           Int            @id @default(autoincrement())
+  active       Boolean        @default(true)
+  createdAt    DateTime       @default(now()) @db.Timestamptz(3)
+  name         String
+  UserSubjects UserSubjects[]
+}
+
+model UserSubjects {
+  id        Int      @id @default(autoincrement())
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  subjectId Int
+  subject   Subjects @relation(fields: [subjectId], references: [id])
+}
+
+model Task {
+  id          Int        @id @default(autoincrement())
+  active      Boolean    @default(true)
+  createdAt   DateTime   @default(now()) @db.Timestamptz(3)
+  periodStart DateTime
+  periodEnd   DateTime
+  level       Int
+  UserTask    UserTask[]
+  Question    Question[]
+}
+
+model UserTask {
+  id               Int                @id @default(autoincrement())
+  active           Boolean            @default(true)
+  createdAt        DateTime           @default(now()) @db.Timestamptz(3)
+  taskId           Int
+  task             Task               @relation(fields: [taskId], references: [id])
+  userId           Int
+  user             User               @relation(fields: [userId], references: [id])
+  status           Int
+  level            Int
+  score            Int
+  UserTaskQuestion UserTaskQuestion[]
+}
+
+model Question {
+  id                  Int                   @id @default(autoincrement())
+  active              Boolean               @default(true)
+  createdAt           DateTime              @default(now()) @db.Timestamptz(3)
+  title               String
+  taskId              Int
+  task                Task                  @relation(fields: [taskId], references: [id])
+  QuestionAlternative QuestionAlternative[]
+  UserTaskQuestion    UserTaskQuestion[]
+}
+
+model QuestionAlternative {
+  id               Int                @id @default(autoincrement())
+  active           Boolean            @default(true)
+  createdAt        DateTime           @default(now()) @db.Timestamptz(3)
+  isCorrect        Boolean
+  questionId       Int
+  question         Question           @relation(fields: [questionId], references: [id])
+  UserTaskQuestion UserTaskQuestion[]
+}
+
+model UserTaskQuestion {
+  id            Int                 @id @default(autoincrement())
+  active        Boolean             @default(true)
+  createdAt     DateTime            @default(now()) @db.Timestamptz(3)
+  questionId    Int
+  question      Question            @relation(fields: [questionId], references: [id])
+  alternativeId Int
+  alternative   QuestionAlternative @relation(fields: [alternativeId], references: [id])
+  userTaskId    Int
+  userTask      UserTask            @relation(fields: [userTaskId], references: [id])
+}

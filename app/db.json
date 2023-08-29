@@ -1,0 +1,334 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Filipe",
+      "points": 0
+    }
+  ],
+  "userTask": [],
+  "userQuestions": [
+    {
+      "currentQuestion": 1,
+      "alternative": 2,
+      "user": 1,
+      "timeElapsed": 35170,
+      "id": 1
+    },
+    {
+      "currentQuestion": 2,
+      "alternative": 2,
+      "user": 1,
+      "timeElapsed": 21197,
+      "id": 2
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "periodStart": "2023-08-23",
+      "periodEnd": "2023-09-23",
+      "subject": "Conhecimentos gerais",
+      "level": 2
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "title": "Qual é o maior planeta do sistema solar?",
+      "task": 1,
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Marte",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Júpiter",
+          "isCorrect": true
+        },
+        {
+          "id": 3,
+          "text": "Terra",
+          "isCorrect": false
+        },
+        {
+          "id": 4,
+          "text": "Vênus",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Qual é o gás mais abundante na atmosfera da Terra?",
+      "task": 1,
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Oxigênio",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Dióxido de carbono",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Nitrogênio",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "text": "Hidrogênio",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "task": 1,
+      "title": "Qual é a camada externa da Terra, composta por placas tectônicas em constante movimento?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Núcleo",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Manto",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Crosta",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "text": "Núcleo interno",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "task": 1,
+      "title": "Qual é o processo pelo qual as plantas fabricam seu próprio alimento usando luz solar?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Respiração",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Digestão",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Fotossíntese",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "text": "Transpiração",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "task": 1,
+      "title": "Quem escreveu a peça de teatro 'Romeu e Julieta'?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "William Shakespeare",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "Charles Dickens",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Mark Twain",
+          "isCorrect": false
+        },
+        {
+          "id": 4,
+          "text": "Jane Austen",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "task": 1,
+      "title": "Qual é o maior osso do corpo humano?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Fêmur",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "Úmero",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Tíbia",
+          "isCorrect": false
+        },
+        {
+          "id": 4,
+          "text": "Rádio",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "task": 1,
+      "title": "Qual é a capital do Brasil?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "São Paulo",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Rio de Janeiro",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Brasília",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "text": "Belo Horizonte",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "task": 1,
+      "title": "Quem escreveu a peça de teatro 'Romeu e Julieta'?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "William Shakespeare",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "text": "Charles Dickens",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Mark Twain",
+          "isCorrect": false
+        },
+        {
+          "id": 4,
+          "text": "Jane Austen",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "task": 1,
+      "title": "Qual é o símbolo químico para o elemento ouro?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Ag",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Au",
+          "isCorrect": true
+        },
+        {
+          "id": 3,
+          "text": "O",
+          "isCorrect": false
+        },
+        {
+          "id": 4,
+          "text": "Fe",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "task": 1,
+      "title": "Qual é o processo de transformação direta do gelo para o vapor, sem passar pelo estado líquido?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Fusão",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Evaporação",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Sublimação",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "text": "Condensação",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "task": 1,
+      "title": "Qual é a maior cordilheira submarina do mundo?",
+      "alternatives": [
+        {
+          "id": 1,
+          "text": "Cordilheira do Himalaia",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "text": "Cordilheira dos Andes",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "text": "Dorsal Mesoatlântica",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "text": "Cordilheira dos Alpes",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}
