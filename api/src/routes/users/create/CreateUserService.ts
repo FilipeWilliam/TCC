@@ -37,7 +37,6 @@ export class CreateUserService {
       });
       delete result.password;
 
-
       return { result };
     } catch (error) {
       console.log(error);

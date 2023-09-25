@@ -19,7 +19,7 @@ model User {
   institution   Institution?   @relation(fields: [institutionId], references: [id], onDelete: Cascade)
   UserSubjects  UserSubjects[]
   UserTask      UserTask[]
-  points        Int
+  points        Int?
 }
 
 model Institution {

@@ -1,14 +1,16 @@
 import { Response, Request } from 'express';
 import { handleErrorDefault, handleResult } from '../../../utils';
-import { CreateUserService } from './CreateUserService';
+import { UpdateInstitutionService } from './UpdateInstitutionService';
 
-export class CreateUserController {
+export class UpdateInstitutionController {
   async handle(req: Request, res: Response) {
-    const { name, email, password, type} = req.body;
-    const service = new CreateUserService();
+    const { name } = req.body;
+    const {id} = req.params;
+
+    const service = new UpdateInstitutionService();
 
     try {
-      const result = await service.execute(name, email, password, type);
+      const result = await service.execute(+id, name);
 
       return handleResult(res, result);
 

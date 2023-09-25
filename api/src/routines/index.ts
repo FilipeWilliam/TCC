@@ -4,7 +4,7 @@ import prismaClient from "../prisma";
 //Services
 import { CreateUserService } from "../routes/users/create/CreateUserService";
 
-export async function verifyNeedDBInit() {
+export async function verifyNeedDBInit(): Promise<void> {
   let hasSystemUser = await prismaClient.user.findFirst({
     where: {
       type: UserTypes.System,
@@ -13,10 +13,6 @@ export async function verifyNeedDBInit() {
 
   if (!hasSystemUser) {
     await createDefaultUsers();
-
-    return true;
-  } else {
-    return false;
   }
 }
 
@@ -28,6 +24,18 @@ export async function createDefaultUsers() {
       "dev@ifc.com",
       "devifc",
       UserTypes.System,
+    );
+    await service.execute(
+      "SystemAdmin",
+      "admin@ifc.com",
+      "adminifc",
+      UserTypes.Admin,
+    );
+    await service.execute(
+      "Professor",
+      "professor@ifc.com",
+      "professorifc",
+      UserTypes.Teacher,
     );
     await service.execute(
       "Estudante",
