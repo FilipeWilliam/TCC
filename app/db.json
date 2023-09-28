@@ -7,22 +7,7 @@
     }
   ],
   "userTask": [],
-  "userQuestions": [
-    {
-      "currentQuestion": 1,
-      "alternative": 2,
-      "user": 1,
-      "timeElapsed": 35170,
-      "id": 1
-    },
-    {
-      "currentQuestion": 2,
-      "alternative": 2,
-      "user": 1,
-      "timeElapsed": 21197,
-      "id": 2
-    }
-  ],
+  "userQuestions": [],
   "tasks": [
     {
       "id": 1,
