@@ -3,7 +3,7 @@ import prismaClient from "../../../prisma";
 export class UpdateInstitutionService {
   async execute(id, name) {
     try {
-      let result = await prismaClient.institution.update({
+      let result = await prismaClient.institutions.update({
         where: {
           id,
         },

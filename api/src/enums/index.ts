@@ -1,6 +1,7 @@
 export enum UserTypes {
   System = 1,
-  Admin = 2,
-  Teacher = 3,
-  Student = 4,
+  SystemAdmin = 2,
+  Admin = 3,
+  Teacher = 4,
+  Student = 5,
 }

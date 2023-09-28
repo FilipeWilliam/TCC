@@ -29,19 +29,7 @@ export async function createDefaultUsers() {
       "SystemAdmin",
       "admin@ifc.com",
       "adminifc",
-      UserTypes.Admin,
-    );
-    await service.execute(
-      "Professor",
-      "professor@ifc.com",
-      "professorifc",
-      UserTypes.Teacher,
-    );
-    await service.execute(
-      "Estudante",
-      "estudante@ifc.com",
-      "estudanteifc",
-      UserTypes.Student,
+      UserTypes.SystemAdmin,
     );
   } catch (error) {
     console.log(error);
