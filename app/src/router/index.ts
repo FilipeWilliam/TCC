@@ -1,5 +1,7 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import { useAppStore } from '@/store/app';
+import { userTypes } from '@/store/user'
+import { RouteLocationNormalized, Router, createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -14,6 +16,13 @@ const routes = [
         path: '/',
         name: 'Home',
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+        meta: {
+          permission: [
+            userTypes.Admin,
+            userTypes.Teacher,
+            userTypes.Student,
+          ],
+        },
         children: [
           {
             path: '/dashboard',
@@ -22,6 +31,11 @@ const routes = [
             meta: {
               menuIcon: 'mdi-view-dashboard',
               menuLabel: 'Dashboard',
+              permission: [
+                userTypes.Admin,
+                userTypes.Teacher,
+                userTypes.Student,
+              ],
             }
           },
           {
@@ -31,6 +45,10 @@ const routes = [
             meta: {
               menuIcon: 'mdi-notebook',
               menuLabel: 'Tarefas',
+              permission: [
+                userTypes.Teacher,
+                userTypes.Student,
+              ],
             }
           },
           {
@@ -40,6 +58,9 @@ const routes = [
             meta: {
               menuIcon: 'mdi-file-question',
               menuLabel: 'Tarefa',
+              permission: [
+                userTypes.Student,
+              ],
             }
           },
           {
@@ -57,9 +78,41 @@ const routes = [
   },
 ]
 
-const router = createRouter({
+const router: Router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-})
+});
+
+let appStore: any;
+
+router.beforeEach((to: RouteLocationNormalized, from, next) => {
+  if (!appStore) {
+    appStore = useAppStore();
+  }
+
+  if (!to.meta.hasOwnProperty("permission")) {
+    next();
+  } else {
+    if (appStore.apiToken === "" && localStorage.getItem("apiToken")) {
+      appStore.setCredentials();
+    }
+
+    if (appStore.apiToken !== "") {
+      if (hasUserAuthorization(to)) {
+        next();
+      } else {
+        router.push("/dashboard");
+      }
+    } else {
+      router.push("/login");
+    }
+  }
+});
+
+function hasUserAuthorization(to: RouteLocationNormalized): boolean {
+  return (to.meta.permission as Array<number>).includes(
+    (appStore.appUser as any).type
+  );
+}
 
 export default router

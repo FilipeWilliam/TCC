@@ -1,6 +1,6 @@
 <template>
   <div class="login-wrapper">
-    <v-card class="login-card" color="primary">
+    <v-card class="login-card" color="white">
       <v-card-title class="d-flex justify-center py-3">
         <v-img src="@/assets/logo.png" max-width="120px" contain></v-img>
       </v-card-title>
@@ -11,19 +11,19 @@
             senha.</v-card-text>
 
           <v-form @submit.prevent="submitPasswordReset">
-            <v-text-field v-model="formPasswordReset.phone" variant="outlined" label="Telefone"></v-text-field>
+            <v-text-field v-model="formPasswordReset.email" variant="outlined" label="Telefone"></v-text-field>
 
             <div class="py-2">
               <a @click.prevent="formMode = 'login'">Voltar</a>
             </div>
 
-            <v-btn :loading="isLoading" block color="primary" class="mt-2" type="submit">Enviar</v-btn>
+            <v-btn :loading="isLoading" block color="secondary" class="mt-2" type="submit">Enviar</v-btn>
           </v-form>
         </template>
 
         <template v-else>
           <v-form @submit.prevent="submit">
-            <v-text-field v-model="form.email" variant="outlined" label="Email"></v-text-field>
+            <v-text-field v-model="form.email" variant="outlined" label="Email" type="email"></v-text-field>
 
             <v-text-field v-model="form.password" variant="outlined" label="Senha" type="password"></v-text-field>
 
@@ -59,7 +59,7 @@ export default defineComponent({
       password: null
     });
     const formPasswordReset = ref({
-      phone: null
+      email: null
     });
 
     const submit = () => {
@@ -78,14 +78,10 @@ export default defineComponent({
       isLoading.value = true;
       let entity = cloneDeep(formPasswordReset.value);
 
-      if (![null, ''].includes(entity.phone)) {
-        entity.phone = (entity.phone as any).replace(/\D/g, '');
-      }
-
       appStore.passwordReset(entity)
         .then((response: any) => {
-          formPasswordReset.value.phone = null;
-          handleAPISuccess(response, 'Foi enviado uma mensagem para redefinição da senha.');
+          formPasswordReset.value.email = null;
+          handleAPISuccess(response, 'Foi enviado um email para redefinição da senha.');
           formMode.value = 'login';
         })
         .catch(catchErrorDefault)
