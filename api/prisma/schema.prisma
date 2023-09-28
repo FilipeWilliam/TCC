@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Users {
   id            Int            @id @default(autoincrement())
   active        Boolean        @default(true)
   createdAt     DateTime       @default(now()) @db.Timestamptz(3)
@@ -16,18 +16,18 @@ model User {
   password      String
   type          Int
   institutionId Int?
-  institution   Institution?   @relation(fields: [institutionId], references: [id], onDelete: Cascade)
+  institution   Institutions?   @relation(fields: [institutionId], references: [id], onDelete: Cascade)
   UserSubjects  UserSubjects[]
-  UserTask      UserTask[]
+  UserTask      UserTasks[]
   points        Int?
 }
 
-model Institution {
+model Institutions {
   id        Int      @id @default(autoincrement())
   active    Boolean  @default(true)
   createdAt DateTime @default(now()) @db.Timestamptz(3)
   name      String
-  User      User[]
+  User      Users[]
 }
 
 model Subjects {
@@ -43,54 +43,54 @@ model UserSubjects {
   active    Boolean  @default(true)
   createdAt DateTime @default(now()) @db.Timestamptz(3)
   userId    Int
-  user      User     @relation(fields: [userId], references: [id])
+  user      Users     @relation(fields: [userId], references: [id])
   subjectId Int
   subject   Subjects @relation(fields: [subjectId], references: [id])
 }
 
-model Task {
+model Tasks {
   id          Int        @id @default(autoincrement())
   active      Boolean    @default(true)
   createdAt   DateTime   @default(now()) @db.Timestamptz(3)
   periodStart DateTime
   periodEnd   DateTime
   level       Int
-  UserTask    UserTask[]
-  Question    Question[]
+  UserTask    UserTasks[]
+  Question    Questions[]
 }
 
-model UserTask {
+model UserTasks {
   id               Int                @id @default(autoincrement())
   active           Boolean            @default(true)
   createdAt        DateTime           @default(now()) @db.Timestamptz(3)
   taskId           Int
-  task             Task               @relation(fields: [taskId], references: [id])
+  task             Tasks               @relation(fields: [taskId], references: [id])
   userId           Int
-  user             User               @relation(fields: [userId], references: [id])
+  user             Users               @relation(fields: [userId], references: [id])
   status           Int
   level            Int
   score            Int
   UserTaskQuestion UserTaskQuestion[]
 }
 
-model Question {
+model Questions {
   id                  Int                   @id @default(autoincrement())
   active              Boolean               @default(true)
   createdAt           DateTime              @default(now()) @db.Timestamptz(3)
   title               String
   taskId              Int
-  task                Task                  @relation(fields: [taskId], references: [id])
-  QuestionAlternative QuestionAlternative[]
+  task                Tasks                  @relation(fields: [taskId], references: [id])
+  QuestionAlternative QuestionAlternatives[]
   UserTaskQuestion    UserTaskQuestion[]
 }
 
-model QuestionAlternative {
+model QuestionAlternatives {
   id               Int                @id @default(autoincrement())
   active           Boolean            @default(true)
   createdAt        DateTime           @default(now()) @db.Timestamptz(3)
   isCorrect        Boolean
   questionId       Int
-  question         Question           @relation(fields: [questionId], references: [id])
+  question         Questions           @relation(fields: [questionId], references: [id])
   UserTaskQuestion UserTaskQuestion[]
 }
 
@@ -99,9 +99,9 @@ model UserTaskQuestion {
   active        Boolean             @default(true)
   createdAt     DateTime            @default(now()) @db.Timestamptz(3)
   questionId    Int
-  question      Question            @relation(fields: [questionId], references: [id])
+  question      Questions            @relation(fields: [questionId], references: [id])
   alternativeId Int
-  alternative   QuestionAlternative @relation(fields: [alternativeId], references: [id])
+  alternative   QuestionAlternatives @relation(fields: [alternativeId], references: [id])
   userTaskId    Int
-  userTask      UserTask            @relation(fields: [userTaskId], references: [id])
+  userTask      UserTasks            @relation(fields: [userTaskId], references: [id])
 }

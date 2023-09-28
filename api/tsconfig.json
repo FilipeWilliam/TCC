@@ -12,9 +12,7 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
   }
 }

@@ -5,7 +5,7 @@ export class PasswordChangeService {
   async execute(id, password) {
     let cryptedPassword = pbkdf2Sync(password, process.env.JWT_SECRET, 1000, 64, 'sha1').toString('hex');
 
-    let result = await prismaClient.user.update({
+    let result = await prismaClient.users.update({
       where: {
         id
       },

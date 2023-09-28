@@ -4,7 +4,7 @@ import { sign } from 'jsonwebtoken';
 
 class AuthService {
   async execute(email: string, currentPassword: string) {
-    let user = await prismaClient.user.findFirst({
+    let user = await prismaClient.users.findFirst({
       where: {
         email,
       },

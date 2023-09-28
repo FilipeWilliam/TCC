@@ -32,7 +32,7 @@ export class CreateUserService {
     }
 
     try {
-      let result = await prismaClient.user.create({
+      let result = await prismaClient.users.create({
         data
       });
       delete result.password;

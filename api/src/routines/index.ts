@@ -5,7 +5,7 @@ import prismaClient from "../prisma";
 import { CreateUserService } from "../routes/users/create/CreateUserService";
 
 export async function verifyNeedDBInit(): Promise<void> {
-  let hasSystemUser = await prismaClient.user.findFirst({
+  let hasSystemUser = await prismaClient.users.findFirst({
     where: {
       type: UserTypes.System,
     },

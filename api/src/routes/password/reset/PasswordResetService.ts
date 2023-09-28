@@ -3,7 +3,7 @@ import prismaClient from "../../../prisma";
 export class PasswordResetService {
   async execute(email) {
     try {
-      let result = await prismaClient.user.findFirst({
+      let result = await prismaClient.users.findFirst({
         where: {
           email: {
             equals: email

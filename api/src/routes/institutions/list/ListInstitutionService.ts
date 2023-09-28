@@ -1,8 +1,8 @@
-import prismaClient from "../../../prisma";
+import prismaClient from "@/prisma";
 
 export class ListInstitutionService {
   async execute() {
-    let entities = await prismaClient.user.findMany({});
+    let entities = await prismaClient.users.findMany({});
 
     return { entities };
   }

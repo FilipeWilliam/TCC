@@ -2,7 +2,7 @@ import prismaClient from "../../../prisma";
 
 export class DeleteUserService {
   async execute(id: number) {
-    let result = await prismaClient.user.delete(
+    let result = await prismaClient.users.delete(
       {
         where: {
           id
