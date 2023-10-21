@@ -1,0 +1,285 @@
+{
+    "9e09270e4e10ab043dd0ae9e16cb55d5":{
+
+        "nome":"Biologia",
+        "ilha_img":"ilha_biologia.png",
+        "icon":"coqueiro_lendario",
+
+        "questions":{
+
+            "1":{
+                "dificuldade":"fácil",
+                "questao":"A célula vegetal é eucarionte, assim como a célula animal, entretanto, apresenta algumas características que permitem diferenciá-la dessa última célula. Todas as estruturas abaixo são exclusivas da célula vegetal, exceto",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"parede celular celulósica.",
+                    "a_img":null,
+                    "b":"vacúolo de suco celular.",
+                    "b_img":null,
+                    "c":"cromoplasto.",
+                    "c_img":null,
+                    "d":"ribossomo.",
+                    "d_img":null,
+                    "e":"leucoplasto",
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["Responsáveis pela síntese de proteínas", "Essas estruturas são formadas por duas subunidades, um maior e uma menor, constituídas por moléculas de RNA (ácido ribonucleico) e proteínas."],
+                    "reveladoras":["Nove letras.","_ _ _ _ s s o m o"]
+                },
+                "resposta_correta":"d",
+                "explicacao_resposta":"Os ribossomos são encontrados em células animais e vegetais, além de estarem presentes também em células procariontes."
+
+            },
+
+            "2":{
+                "dificuldade":"fácil",
+                "questao":"A presença de plastídios é uma característica marcante da célula vegetal. Analise as alternativas abaixo e marque aquela que indica corretamente o nome dado ao plastídio rico em carotenoide.",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"Cloroplasto.",
+                    "a_img":null,
+                    "b":"Amiloplasto.",
+                    "b_img":null,
+                    "c":"Leucoplasto.",
+                    "c_img":null,
+                    "d":"Cromoplasto.",
+                    "d_img":null,
+                    "e":"Proteinoplasto.",
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["São plastídios especializados na síntese e armazenamento de pigmentos acessórios diferentes da clorofila.", "Pensa-se, que como todos os outros plastos, incluindo cloroplastos e leucoplastos, eles descendam de relações simbióticas com procariotos."],
+                    "reveladoras":["Começa com Cromo."]
+                },
+                "resposta_correta":"d",
+                "explicacao_resposta":"Os cromoplastos são plastos com pigmentação, os quais são ricos em carotenoides."
+
+            },
+
+            "3":{
+                "dificuldade":"fácil",
+                "questao":"Analise as alternativas abaixo e marque o nome da organela encontrada na célula vegetal responsável pela germinação de sementes de oleaginosas.",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"lisossomos.",
+                    "a_img":null,
+                    "b":"peroxissomo.",
+                    "b_img":null,
+                    "c":"glioxissomo.",
+                    "c_img":null,
+                    "d":"clorossomo.",
+                    "d_img":null,
+                    "e":"retículo endoplasmático.",
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":[],
+                    "reveladoras":["Começa com Glio."]
+                },
+                "resposta_correta":"c",
+                "explicacao_resposta":"O glioxissomo é uma organela especializada das células vegetais, rica em enzimas e encontrada em sementes de oleaginosas."
+
+            },
+
+            "4":{
+                "dificuldade":"difícil",
+                "questao":"Analise as proposições quanto às características dos cloroplastos presentes na célula vegetal, e assinale (V) para verdadeira e (F) para falsa. ( ) Os cloroplastos são organelas constituídas por duas membranas e possuem DNA próprio. ( ) Os cloroplastos não possuem um DNA próprio, mas apresentam RNAs e ribossomos para a síntese proteica. ( ) O estroma é a matriz do cloroplasto, onde são encontradas várias enzimas que participam da fotossíntese. ( ) Os tilacoides são vesículas achatadas que contêm os pigmentos que absorvem energia luminosa. ( ) O granum está presente nos vacúolos do estroma e participa da fase escura da fotossíntese. Assinale a alternativa que contém a sequência correta, de cima para baixo.",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"V – V – F – F – F.",
+                    "a_img":null,
+                    "b":"F – V – F – F – V.",
+                    "b_img":null,
+                    "c":"F – F – V – F – V.",
+                    "c_img":null,
+                    "d":"V – F – V – V – F.",
+                    "d_img":null,
+                    "e":"F – F – V – V – F.",
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["Os cloroplastos ocorrem nas células de algas e nas células de plantas.", "Em botânica, designam-se como tilacoides os sistemas de membranas internas do cloroplasto e das cianobactérias que contêm a(s) clorofila."],
+                    "reveladoras":["O cloroplasto possui DNA próprio.","O granum é uma pilha de tilacoides encontrada no estroma do cloroplasto."]
+                },
+                "resposta_correta":"d",
+                "explicacao_resposta":"A segunda afirmação está incorreta, pois o cloroplasto possui DNA próprio. Já a última informação está incorreta, pois o granum é uma pilha de tilacoides encontrada no estroma do cloroplasto."
+
+            },
+
+            "5":{
+                "dificuldade":"fácil",
+                "questao":"A parede celular das células vegetais diferencia-se da parede celular presente em células bacterianas, pois, nas primeiras, há a presença de grande quantidade de:",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"quitina.",
+                    "a_img":null,
+                    "b":"queratina.",
+                    "b_img":null,
+                    "c":"peptideoglicano.",
+                    "c_img":null,
+                    "d":"celulose.",
+                    "d_img":null,
+                    "e":"lipoproteínas.",
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["A maioria das paredes celulares bacterianas contém peptideoglicano."],
+                    "reveladoras":["Oito letras.","C e _ _ _ _ _ _."]
+                },
+                "resposta_correta":"d",
+                "explicacao_resposta":"A parede celular dos vegetais é rica em celulose, enquanto a maioria das paredes celulares bacterianas contém peptideoglicano."
+
+            }
+        }
+
+    },
+
+    "3df880635877c1feefa9642092568cf5":{
+        
+        "nome":"Informática",
+        "ilha_img":"ilha_da_informatica.png",
+        "icon":"computer",
+
+        "questions":{
+
+            "1":{
+                "dificuldade":"fácil",
+                "questao":"Para cambiar el color del texto seleccionado en una página específica, un usuario de la aplicación MS Word 2003 debe formatear",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"Fonte",
+                    "a_img":null,
+                    "b":"Parágrafo",
+                    "b_img":null,
+                    "c":"Background",
+                    "c_img":null,
+                    "d":"configuração de página",
+                    "d_img":null,
+                    "e":"bordas e sombreamento",
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["A origem do texto"],
+                    "reveladoras":["Cinco letras."]
+                },
+                "resposta_correta":"a",
+                "explicacao_resposta":"Para alterar a cor de um texto selecionado em uma página específica, um usuário do aplicativo MS Word 2003 deve formatar a fonte."
+
+            },
+
+            "2":{
+                "dificuldade":"fácil",
+                "questao":"Quando você inicia a mala direta, mala direta de etiqueta, ou mala direta de carta e conecta o documento a sua lista de endereçamento, você pode adicionar campos de mala direta para personalizar o conteúdo. Sobre os recursos disponíveis na ferramenta de mala direta no MS Word 2016, podemos afirmar que: I- Para adicionar com facilidade um bloco de endereço a sua carta, envelope ou um rótulo, use a ferramenta Bloco de Endereço. II- Para adicionar uma saudação padrão à sua mensagem de e-mail ou carta, use a ferramenta Linha de Saudação. III- Os campos de mala direta vêm dos títulos das colunas da sua lista de endereçamento (também chamada de sua 'fonte de dados'). Diante do exposto, está correto o contido:",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"Apenas na opção I.",
+                    "a_img":null,
+                    "b":"Apenas na opção II.",
+                    "b_img":null,
+                    "c":"Apenas nas opções I e III.",
+                    "c_img":null,
+                    "d":"Em todas as opções.",
+                    "d_img":null,
+                    "e":null,
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["O MS Word conta com várias integrações que facilitam o envio de e-mails."],
+                    "reveladoras":["Nenhuma está errada."]
+                },
+                "resposta_correta":"d",
+                "explicacao_resposta":"Todos estes recursos estão disponíveis no MS Word 2016."
+
+            },
+
+            "3":{
+                "dificuldade":"fácil",
+                "questao":"Um diagrama entidade relacionamento (ER) é um tipo de fluxograma que ilustra como “entidades”, p. ex., pessoas, objetos ou conceitos, se relacionam entre si dentro de um sistema. Sobre 'diagrama entidade relacionamento', leia as afirmativas abaixo. I. Também conhecidos como DERs, ou modelos ER, usam um conjunto definido de símbolos, tais como retângulos, losango, ovais e linhas de conexão para representar a interconectividade de entidades, relacionamentos e seus atributos. II. Diagramas ER são compostos de entidades, relacionamentos e atributos. III. Os três principais relacionamentos cardinais são: um-para-um, um-para-muitos e muitos-para-muitos. De acordo com as afirmativas acima, a alternativa correta é:",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"I e III",
+                    "a_img":null,
+                    "b":"I, II e III",
+                    "b_img":null,
+                    "c":"II e III",
+                    "c_img":null,
+                    "d":"I e II",
+                    "d_img":null,
+                    "e":null,
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":[],
+                    "reveladoras":["Nenhuma está errada."]
+                },
+                "resposta_correta":"b",
+                "explicacao_resposta":"Todas estas características estão presentes quando se lida com um diagrama entidade relacionamento (ER)."
+
+            },
+
+            "4":{
+                "dificuldade":"difícil",
+                "questao":"Câmara de Pará de Minas/MG - Técnico em Informática) - Considerando os barramentos de um computador, o barramento responsável por selecionar um registrador em um dos dispositivos do sistema que é utilizado como a fonte ou o destino do dado após o processamento é o:",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"Barramento de controle.",
+                    "a_img":null,
+                    "b":"Barramento de dados.",
+                    "b_img":null,
+                    "c":"Barramento de endereço.",
+                    "c_img":null,
+                    "d":"Barramento de memória.",
+                    "d_img":null,
+                    "e":null,
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["Relacionado a indexação de dados."],
+                    "reveladoras":["Cuida do endereçamento."]
+                },
+                "resposta_correta":"c",
+                "explicacao_resposta":null
+
+            },
+
+            "5":{
+                "dificuldade":"fácil",
+                "questao":"Em relação a placas de rede, pode-se afirmar: A) Cada arquitetura de rede comporta qualquer tipo de placa de rede. B) É compatível uma placa de rede Token Ring em uma rede Ethernet. C) Em relação à taxa de transmissão, as placas Ethernet são de 4mbps e 16mbps e Token Ring de 10mbps e 100mbps. D) Nenhuma placa de rede Token Ring suporta o uso de cabos coaxais.",
+                "questao_img":null,
+                "alternativas":{
+                    "a":"A)",
+                    "a_img":null,
+                    "b":"B)",
+                    "b_img":null,
+                    "c":"C)",
+                    "c_img":null,
+                    "d":"D)",
+                    "d_img":null,
+                    "e":null,
+                    "e_img":null
+
+                },
+                "dicas": {
+                    "nao_reveladoras":["Token ring é um protocolo de redes que opera na camada física e de enlace do modelo OSI dependendo da sua aplicação."],
+                    "reveladoras":["As placas de rede, assim como os hubs e os cabos, precisam ser próprios para as redes Token Ring para que possam funcionar de maneira correta."]
+                },
+                "resposta_correta":"d",
+                "explicacao_resposta":"Cabos precisam ser próprios para as redes Token Ring para funcionar de maneira correta."
+
+            }
+        }
+
+
+    }
+    
+}
