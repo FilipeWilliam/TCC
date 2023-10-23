@@ -21,15 +21,15 @@ export async function createDefaultUsers() {
     let service = new CreateUserService();
     await service.execute(
       "System",
-      "dev@ifc.com",
-      "devifc",
+      "dev@system.com",
       UserTypes.System,
+      "devsystem",
     );
     await service.execute(
       "SystemAdmin",
-      "admin@ifc.com",
-      "adminifc",
+      "admin@system.com",
       UserTypes.SystemAdmin,
+      "adminsystem",
     );
   } catch (error) {
     console.log(error);

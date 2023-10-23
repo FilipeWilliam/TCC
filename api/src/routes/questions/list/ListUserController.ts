@@ -1,10 +1,10 @@
 import { Response, Request } from 'express';
 import { handleErrorDefault, handleResult } from '../../../utils';
-import { ListInstitutionService } from './ListInstitutionService';
+import { ListUserService } from './ListUserService';
 
-export class ListInstitutionController {
+export class ListUserController {
   async handle(req: Request, res: Response) {
-    const service = new ListInstitutionService();
+    const service = new ListUserService();
 
     try {
       const result = await service.execute();

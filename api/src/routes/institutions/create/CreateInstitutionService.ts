@@ -1,6 +1,6 @@
-import { UserTypes } from "@/enums";
+import { UserTypes } from "../../../enums";
 import prismaClient from "../../../prisma";
-import { generateRandomString } from "@/utils";
+import { generateCryptedPassword } from "@/utils";
 
 export class CreateInstitutionService {
   async execute(name: string, userName: string, userEmail: string) {
@@ -17,7 +17,7 @@ export class CreateInstitutionService {
           email: userEmail,
           type: UserTypes.Admin,
           institutionId: result.id,
-          password: generateRandomString(8)
+          password: generateCryptedPassword('usuario1')
         }
       })
 

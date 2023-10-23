@@ -1,5 +1,7 @@
+import { pbkdf2Sync } from "crypto";
+
 export function handleResult(response, result) {
-  if (Object.keys(result).length === 1 && result.hasOwnProperty("message")) {
+  if (Object.keys(result).length === 1 && result.hasOwnProperty("error")) {
     return response.status(400).json(result);
   }
 
@@ -32,4 +34,20 @@ export function generateRandomString(length: number) {
   }
 
   return randomString;
+}
+
+export function generateCryptedPassword(currentPassword?: string) {
+  let password = currentPassword;
+
+  if (password === undefined) {
+    password = generateRandomString(8);
+  }
+
+  return pbkdf2Sync(
+    password,
+    process.env.JWT_SECRET,
+    1000,
+    64,
+    "sha1"
+  ).toString("hex");
 }

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { AuthService } from './AuthService';
+import { handleErrorDefault, handleResult } from '@/utils';
 
 class AuthController {
   async handle(req: Request, res: Response) {
@@ -9,14 +10,9 @@ class AuthController {
     try {
       const result = await service.execute(email, password);
 
-      if (result.message) {
-        return res.status(400).json(result);
-      }
-
-      return res.json(result);
-
+      return handleResult(res, result);
     } catch (err) {
-      return res.json({ error: err.message });
+      return handleErrorDefault(res, err);
     }
 
   }

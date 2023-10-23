@@ -11,13 +11,13 @@ class AuthService {
     });
 
     if (!user) {
-      return { message: 'Usuário não encontrado' };
+      return { error: 'Usuário não encontrado' };
     }
 
     let cryptedPassword = pbkdf2Sync(currentPassword, process.env.JWT_SECRET, 1000, 64, 'sha1').toString('hex');
 
     if (user.password !== cryptedPassword) {
-      return { message: 'Senha incorreta' };
+      return { error: 'Senha incorreta' };
     }
 
     const token = sign(

@@ -1,34 +1,16 @@
-import { pbkdf2Sync } from "crypto";
-import prismaClient from "../../../prisma";
-import { generateRandomString } from "../../../utils";
+import prismaClient from "@/prisma";
+import { generateCryptedPassword } from "@/utils";
 
 export class CreateUserService {
-  async execute(name, email, password, type) {
-    let cryptedPassword;
-
-    if (!password) {
-      cryptedPassword = pbkdf2Sync(
-        generateRandomString(8),
-        process.env.JWT_SECRET,
-        1000,
-        64,
-        "sha1"
-      ).toString("hex");
-    } else {
-      cryptedPassword = pbkdf2Sync(
-        password,
-        process.env.JWT_SECRET,
-        1000,
-        64,
-        "sha1"
-      ).toString("hex");
-    }
+  async execute(name: string, email: string, type: number, password?: string, institutionId: number = null) {
+    let cryptedPassword = generateCryptedPassword(password);
 
     let data: any = {
       email,
       name,
       password: cryptedPassword,
       type,
+      institutionId,
     }
 
     try {
