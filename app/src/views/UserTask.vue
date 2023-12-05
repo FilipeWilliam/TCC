@@ -1,6 +1,6 @@
 <template>
   <v-card class="question__card">
-    <v-card-title class="question__index">Questão {{ currentQuestion }}</v-card-title>
+    <v-card-title class="question__index">Questão {{ (indexQuestion + 1) }}</v-card-title>
 
     <template v-if="loading">
       <div class="d-flex justify-center align-center">
@@ -15,8 +15,8 @@
         <v-row>
           <v-col class="question__alternative" :class="{ 'question__alternative--wrong': alternative.isWrong }"
             v-for="(alternative, index) in questionData.alternatives" :key="index" cols="6">
-            <v-card @click="chooseAlternative(alternative)">
-              <v-card-text class="text-center">{{ alternative.text }}</v-card-text>
+            <v-card @click="chooseAlternative(index)">
+              <v-card-text class="text-center">{{ alternative.title }}</v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -26,65 +26,55 @@
 </template>
 
 <script lang="ts" setup>
-import axios from 'axios';
+import { useTaskStore } from '@/store/task';
+import { useUserTaskStore } from '@/store/userTask';
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 let currentQuestion = ref(1);
 let loading = ref(true);
-let userData = ref({
-  id: 1,
-  name: '',
-  points: 0
-})
 let questionData = ref({
   id: 0,
   title: '',
   alternatives: []
 });
-let startQuestionTime: Date;
+let taskStore = useTaskStore();
+let userTaskStore = useUserTaskStore();
+let currentUserTaskId = useRoute().params.id;
+let allQuestions = ref([]);
+let indexQuestion = ref(0);
 
 let getQuestion = () => {
   loading.value = true;
 
-  setTimeout(() => {
-    axios.get('http://localhost:3000/questions/' + currentQuestion.value)
-      .then((response: any) => {
-        questionData.value.alternatives = response.data.alternatives;
-        questionData.value.title = response.data.title;
-        questionData.value.id = response.data.id;
-        startQuestionTime = new Date();
-      })
-      .catch(console.log)
-      .finally(() => loading.value = false);
-  }, 500);
-}
-
-let chooseAlternative = (currentAlternative: any) => {
-  let endQuestionTime: Date = new Date();
-
-  if (currentAlternative.isCorrect) {
-    axios.put('http://localhost:3000/users/' + userData.value.id, {
-      points: userData.value.points + 100,
-      name: userData.value.name
-    })
-      .then(() => userData.value.points += 100)
-      .catch(console.log);
-  }
-
-  axios.post('http://localhost:3000/userQuestions', {
-    currentQuestion: questionData.value.id,
-    alternative: currentAlternative.id,
-    user: 1,
-    timeElapsed: (endQuestionTime - startQuestionTime)
-  })
-    .then(() => {
-      checkAnswer();
-      setTimeout(() => {
-        currentQuestion.value++;
-        getQuestion();
-      }, 2000);
+  taskStore.read(currentUserTaskId)
+    .then((response: any) => {
+      allQuestions.value = response.result.questions;
+      getNextQuestion();
     })
     .catch(console.log)
+    .finally(() => loading.value = false);
+}
+
+let getNextQuestion = () => {
+  let currentQuestion = allQuestions.value[indexQuestion.value];
+  questionData.value.alternatives = [
+    { title: currentQuestion.alternative1, isCorrect: (currentQuestion.correctAlternative === 1) },
+    { title: currentQuestion.alternative2, isCorrect: (currentQuestion.correctAlternative === 2) },
+    { title: currentQuestion.alternative3, isCorrect: (currentQuestion.correctAlternative === 3) },
+    { title: currentQuestion.alternative4, isCorrect: (currentQuestion.correctAlternative === 4) },
+  ];
+  questionData.value.title = currentQuestion.title;
+  questionData.value.id = currentQuestion.id;
+}
+
+let chooseAlternative = () => {
+  checkAnswer()
+
+  setTimeout(() => {
+    indexQuestion.value++;
+    getNextQuestion()
+  }, 3000);
 }
 
 let checkAnswer = () => {

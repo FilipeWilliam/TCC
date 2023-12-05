@@ -19,6 +19,16 @@ import { CreateUserSubjectsController } from "./routes/userSubjects/create/Creat
 import { CreateUserTaskQuestionsController } from "./routes/userTaskQuestions/create/CreateUserTaskQuestionsController";
 import { ListUserTasksController } from "./routes/userTasks/list/ListUserTasksController";
 import { ReadTasksController } from "./routes/tasks/read/ReadTasksController";
+import { ListRankingController } from "./routes/ranking/ListRankingController";
+import { ListTasksController } from "./routes/tasks/list/ListTasksController";
+import { UpdateSubjectController } from "./routes/subjects/update/UpdateSubjectController";
+import { ReadSubjectsController } from "./routes/subjects/read/ReadSubjectsController";
+import { CreateGptQuestionController } from "./routes/gptQuestions/create/CreateGptQuestionController";
+import { ListGptQuestionsController } from "./routes/gptQuestions/list/ListGptQuestionsController";
+import { GroupHitByLevelController } from "./routes/analyse/GroupHitByLevel/GroupHitByLevelController";
+import { GroupTimeByLevelController } from "./routes/analyse/GroupTimeByLevel/GroupTimeByLevelController";
+import { GroupHitByTimeController } from "./routes/analyse/GroupHitByTime/GroupHitByTimeController";
+import { GroupFocusOutByHitController } from "./routes/analyse/GroupFocusOutByHit/GroupFocusOutByHitController";
 
 const router = Router();
 
@@ -42,9 +52,12 @@ router.get("/institutions", [ensureAuth, ensureSystemAdmin], new ListInstitution
 router.delete("/institutions/:id", [ensureAuth, ensureSystemAdmin], new DeleteInstitutionController().handle);
 
 //Subjects
+router.get("/subjects/:id", ensureAuth, new ReadSubjectsController().handle);
 router.post("/subjects", ensureAuth, new CreateSubjectController().handle);
+router.put("/subjects/:id", ensureAuth, new UpdateSubjectController().handle);
 
 //Tasks
+router.get("/tasks", [ensureAuth], new ListTasksController().handle);
 router.get("/tasks/:id", new ReadTasksController().handle);
 router.post("/tasks", ensureAuth, new CreateTaskController().handle);
 
@@ -59,5 +72,18 @@ router.get("/user-tasks", new ListUserTasksController().handle);
 
 //UserTaskQuestions
 router.post("/user-task/:userTaskId/questions", new CreateUserTaskQuestionsController().handle);
+
+//GPTQuestions
+router.get("/gpt-questions", new ListGptQuestionsController().handle);
+router.post("/gpt-questions", new CreateGptQuestionController().handle);
+
+//Analyse
+router.get('/group-hit-level', new GroupHitByLevelController().handle);
+router.get('/group-time-level', new GroupTimeByLevelController().handle);
+router.get('/group-hit-time', new GroupHitByTimeController().handle);
+router.get('/group-focusout-hit', new GroupFocusOutByHitController().handle);
+
+//Ranking
+router.get("/ranking", new ListRankingController().handle);
 
 export { router };

@@ -32,9 +32,22 @@ const routes = [
               menuIcon: 'mdi-view-dashboard',
               menuLabel: 'Dashboard',
               permission: [
+                userTypes.SystemAdmin,
                 userTypes.Admin,
                 userTypes.Teacher,
                 userTypes.Student,
+              ],
+            }
+          },
+          {
+            path: '/institutions',
+            name: 'Institutions',
+            component: () => import(/* webpackChunkName: "tasks" */ '@/views/Tasks.vue'),
+            meta: {
+              menuIcon: 'mdi-domain',
+              menuLabel: 'Instituições',
+              permission: [
+                userTypes.SystemAdmin,
               ],
             }
           },
@@ -52,26 +65,91 @@ const routes = [
             }
           },
           {
-            path: '/user-tasks',
-            name: 'UserTask',
-            component: () => import(/* webpackChunkName: "tasks" */ '@/views/UserTask.vue'),
+            path: '/student-tasks',
+            name: 'StudentTask',
+            component: () => import(/* webpackChunkName: "studentTask" */ '@/views/StudentTask.vue'),
             meta: {
-              menuIcon: 'mdi-file-question',
-              menuLabel: 'Tarefa',
               permission: [
                 userTypes.Student,
               ],
             }
           },
           {
-            path: '/question',
-            name: 'Question',
-            component: () => import(/* webpackChunkName: "question" */ '@/views/QuestionRegister.vue'),
+            path: '/student-ranking',
+            name: 'StudentRanking',
+            component: () => import(/* webpackChunkName: "studentTask" */ '@/views/StudentRanking.vue'),
             meta: {
-              menuIcon: 'mdi-pencil',
-              menuLabel: 'Questões',
+              menuIcon: 'mdi-chart-areaspline',
+              menuLabel: 'Desempenho',
+              permission: [
+                userTypes.Student,
+              ],
             }
           },
+          {
+            path: '/question-tasks/:id',
+            name: 'UserTaskPlay',
+            component: () => import(/* webpackChunkName: "question" */ '@/views/UserTask.vue'),
+            meta: {
+              permission: [
+                userTypes.Student,
+              ],
+            }
+          },
+          {
+            path: '/tasks/new',
+            name: 'UserTask',
+            component: () => import(/* webpackChunkName: "question" */ '@/views/TaskRegister.vue'),
+            meta: {
+              permission: [
+                userTypes.Teacher,
+              ],
+            }
+          },
+          {
+            path: '/teacher-ranking',
+            name: 'TeacherRanking',
+            component: () => import(/* webpackChunkName: "question" */ '@/views/TeacherRanking.vue'),
+            meta: {
+              menuIcon: 'mdi-chart-areaspline',
+              menuLabel: 'Desempenhos',
+              permission: [
+                userTypes.Teacher,
+              ],
+            }
+          },
+          {
+            path: '/tasks/:id',
+            name: 'UserTaskEdit',
+            component: () => import(/* webpackChunkName: "question" */ '@/views/TaskRegister.vue'),
+            meta: {
+              permission: [
+                userTypes.Teacher,
+              ],
+            }
+          },
+          {
+            path: '/tasks/:id/analyse',
+            name: 'UserTaskAnalyse',
+            component: () => import(/* webpackChunkName: "question" */ '@/views/AnalyseTask.vue'),
+            meta: {
+              permission: [
+                userTypes.Teacher,
+              ],
+            }
+          },
+          {
+            path: '/subjects/:id',
+            name: 'Subject',
+            component: () => import(/* webpackChunkName: "question" */ '@/views/Students.vue'),
+            meta: {
+              menuIcon: 'mdi-account-group',
+              menuLabel: 'Estudantes',
+              permission: [
+                userTypes.Teacher,
+              ],
+            }
+          }
         ]
       },
     ],
